@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 6 Aug, 2014 10:59:56 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="info.dummy.Users" table="users" catalog="lab_db">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="password" type="string">
+            <column name="password" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" unique="true" />
+        </property>
+        <property name="usertype" type="string">
+            <column name="usertype" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="45" />
+        </property>
+        <property name="phoneno" type="string">
+            <column name="phoneno" length="45" />
+        </property>
+        <set name="billMasters" inverse="true">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="info.dummy.BillMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

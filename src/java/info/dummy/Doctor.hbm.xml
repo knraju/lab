@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 6 Aug, 2014 10:59:56 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="info.dummy.Doctor" table="doctor" catalog="lab_db">
+        <id name="id" type="java.lang.Long">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="designation" type="string">
+            <column name="designation" />
+        </property>
+        <property name="hospitalPhoneno" type="string">
+            <column name="hospitalPhoneno" />
+        </property>
+        <property name="hospitalname" type="string">
+            <column name="hospitalname" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="phoneno" type="string">
+            <column name="phoneno" />
+        </property>
+        <property name="cellno" type="string">
+            <column name="cellno" length="45" />
+        </property>
+        <set name="billMasters" inverse="true">
+            <key>
+                <column name="doctor_id" />
+            </key>
+            <one-to-many class="info.dummy.BillMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 6 Aug, 2014 10:59:56 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="info.dummy.Testgroup" table="testgroup" catalog="lab_db">
+        <id name="groupId" type="java.lang.Long">
+            <column name="groupId" />
+            <generator class="identity" />
+        </id>
+        <property name="groupName" type="string">
+            <column name="groupName" />
+        </property>
+        <set name="tests" inverse="true">
+            <key>
+                <column name="testgroup_id" />
+            </key>
+            <one-to-many class="info.dummy.Test" />
+        </set>
+    </class>
+</hibernate-mapping>

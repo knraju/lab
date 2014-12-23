@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 6 Aug, 2014 10:59:56 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="info.dummy.Patient" table="patient" catalog="lab_db">
+        <id name="pid" type="string">
+            <column name="pid" />
+            <generator class="assigned" />
+        </id>
+        <property name="address" type="string">
+            <column name="address" />
+        </property>
+        <property name="age" type="java.lang.Integer">
+            <column name="age" />
+        </property>
+        <property name="gender" type="string">
+            <column name="gender" not-null="true" />
+        </property>
+        <property name="phoneno" type="string">
+            <column name="phoneno" />
+        </property>
+        <property name="firstname" type="string">
+            <column name="firstname" length="45" not-null="true" />
+        </property>
+        <property name="lastname" type="string">
+            <column name="lastname" length="45" />
+        </property>
+        <set name="billMasters" inverse="true">
+            <key>
+                <column name="patient_id" />
+            </key>
+            <one-to-many class="info.dummy.BillMaster" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 6 Aug, 2014 10:59:56 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="info.dummy.BillDetails" table="bill_details" catalog="lab_db">
+        <id name="billdetailid" type="long">
+            <column name="billdetailid" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="test" class="info.dummy.Test" fetch="select">
+            <column name="testid" />
+        </many-to-one>
+        <many-to-one name="billMaster" class="info.dummy.BillMaster" fetch="select">
+            <column name="billid" />
+        </many-to-one>
+        <property name="result" type="string">
+            <column name="result" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
